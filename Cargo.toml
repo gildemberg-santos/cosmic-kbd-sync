@@ -1,0 +1,20 @@
+[package]
+name = "cosmic-kbd-sync"
+version = "0.1.0"
+edition = "2021"
+description = "Sync the ASUS TUF keyboard backlight with the COSMIC accent color"
+license = "MIT"
+default-run = "cosmic-kbd-sync"
+
+[dependencies]
+anyhow = "1"
+ashpd = { version = "0.13", features = ["settings"] }
+futures-util = "0.3"
+tokio = { version = "1", features = ["macros", "rt-multi-thread", "time", "fs", "sync", "io-util"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+zbus = "5"
+
+[profile.release]
+strip = true
+lto = "thin"

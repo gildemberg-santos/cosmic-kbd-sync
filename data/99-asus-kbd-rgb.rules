@@ -1,0 +1,4 @@
+# Permite que o usuário dono da sessão escreva no atributo de cor do
+# backlight RGB do teclado ASUS TUF. O install.sh substitui o placeholder
+# pelo usuário que executa o script.
+ACTION=="add", SUBSYSTEM=="leds", KERNEL=="asus::kbd_backlight", RUN+="/usr/bin/chown @USER@ /sys%p/kbd_rgb_mode", RUN+="/usr/bin/chmod 0600 /sys%p/kbd_rgb_mode"

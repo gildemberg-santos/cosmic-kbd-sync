@@ -1,0 +1,13 @@
+[Unit]
+Description=Sync ASUS TUF keyboard backlight with COSMIC accent
+After=graphical-session.target
+PartOf=graphical-session.target
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/cosmic-kbd-sync
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=graphical-session.target
